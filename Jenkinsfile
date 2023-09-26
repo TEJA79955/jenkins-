@@ -9,8 +9,11 @@ pipeline {
         }
         stage ('docker'){
             steps {
-                docker image build -t venkatasaitejareddychalla/saiteja:apache .
-                docker image push venkatasaitejareddychalla/saiteja:apache
+                sh 'docker image build -t venkatasaitejareddychalla/saiteja:spc .'
+                sh 'docker image push venkatasaitejareddychalla/saiteja:spc'
+                sh 'docker container run -d -P venkatasaitejareddychalla/saiteja:spc'
+                sh 'docker container ls'
+                  
             }
         }
     }
