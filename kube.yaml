@@ -1,11 +1,13 @@
 apiVersion: v1
 kind: Pod
 metadata: 
-  name: httpd
+  name: spring
 spec: 
   containers:
-    - name: httpd
-      image: 
-      command:
-        - sleep
-        - 1d 
+    - name: spring
+      image: venkatasaitejareddychalla/saiteja:spc
+      ports:
+        - containerPort: 8080
+          hostPort: 8080 
+          protocol: TCP
+        

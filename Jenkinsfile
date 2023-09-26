@@ -16,5 +16,11 @@ pipeline {
                   
             }
         }
+        stage ('kubernetes'){
+            steps {
+                sh 'kubectl apply -f kube.yaml'
+                sh 'kubectl get all --all'
+            }
+        }
     }
 }
